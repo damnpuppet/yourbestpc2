@@ -1,6 +1,11 @@
+# netlify.toml
+
 [build]
+  # Comando para construir tu Next.js
   command   = "npm run build"
-  publish   = ".netlify/output"      # Salida gestionada por el plugin
+  # Directorio donde Netlify recogerá tus funciones (las genera el plugin)
+  functions = "netlify/functions"
 
 [[plugins]]
+  # Plugin oficial de Next.js
   package = "@netlify/plugin-nextjs"
