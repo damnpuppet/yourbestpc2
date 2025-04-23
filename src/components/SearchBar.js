@@ -1,12 +1,13 @@
 // src/components/SearchBar.js
+
 import { useState } from 'react';
 
 export default function SearchBar({ onSearch }) {
   const [budget, setBudget] = useState(1000);
-  const [useCase, setUseCase] = useState('gaming'); // gaming, programming, render, all
+  const [useCase, setUseCase] = useState('gaming'); // opciones: programming, gaming, render, all
   const [query, setQuery] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSearch({ budget, useCase, query });
   };
@@ -16,7 +17,7 @@ export default function SearchBar({ onSearch }) {
       <input
         type="number"
         value={budget}
-        onChange={e => setBudget(+e.target.value)}
+        onChange={(e) => setBudget(+e.target.value)}
         placeholder="Presupuesto (€)"
         className="border rounded p-1 w-32"
         min={0}
@@ -24,7 +25,7 @@ export default function SearchBar({ onSearch }) {
 
       <select
         value={useCase}
-        onChange={e => setUseCase(e.target.value)}
+        onChange={(e) => setUseCase(e.target.value)}
         className="border rounded p-1"
       >
         <option value="programming">Programación</option>
@@ -36,12 +37,15 @@ export default function SearchBar({ onSearch }) {
       <input
         type="text"
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
         placeholder="Filtrar modelo (opcional)"
         className="border rounded p-1 flex-1"
       />
 
-      <button type="submit" className="bg-blue-600 text-white rounded px-3 py-1">
+      <button
+        type="submit"
+        className="bg-blue-600 text-white rounded px-3 py-1"
+      >
         Montar PC
       </button>
     </form>
